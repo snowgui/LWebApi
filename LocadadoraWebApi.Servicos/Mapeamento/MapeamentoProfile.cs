@@ -8,8 +8,9 @@ namespace LocadadoraWebApi.Servicos.Mapeamento
     {
         public MapeamentoProfile()
         {            
-            CreateMap<Filme, FilmeDto>()
-                .ReverseMap();
+            CreateMap<Filme, FilmeDto>().ReverseMap();
+
+            CreateMap<Locador, LocadorDto>().ReverseMap();
         }
     }
 }

@@ -2,27 +2,27 @@
 
 namespace LocadoraWebApi.Entidades
 {
-    public class Filme
+    public class Locador
     {
         #region Atributes
 
         public Guid Id { get; set; }
         public string Nome { get; set; }
-        public string Genero { get; set; }
-        public bool Disponivel { get; set; }
+        public string Cpf { get; set; }
         public bool Ativo { get; set; }
 
         #endregion
-        public Filme() { }
-        public Filme(string nome, string genero, bool ativo)
+
+        public Locador() { }
+        public Locador(string nome, string cpf, bool ativo)
         {
             this.Id = Guid.NewGuid();
             this.Nome = nome;
-            this.Genero = genero;
+            this.Cpf = cpf;
             this.Ativo = ativo;
-            this.Disponivel = true;
         }
-        
-        
+       
     }
+
+    
 }

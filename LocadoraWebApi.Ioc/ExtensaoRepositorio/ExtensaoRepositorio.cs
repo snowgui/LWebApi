@@ -14,6 +14,7 @@ namespace LocadoraWebApi.Ioc.ExtensaoRepositorio
         public static IServiceCollection RegistrarRepositorios(this IServiceCollection servicos)
         {
             servicos.AddScoped<IFilmeRepositorio, FilmeRepositorio>();
+            servicos.AddScoped<ILocadorRepositorio, LocadorRepositorio>();
             return servicos;
         }
     }

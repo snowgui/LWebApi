@@ -12,11 +12,11 @@ namespace LocadadoraWebApi.Servicos.Servicos
     public class FilmeServico : IFilmeServico
     {
         private readonly IFilmeRepositorio _FilmeRepositorio;
-        private readonly IMapper _mapper;
+        private readonly IMapper _Mapper;
         public FilmeServico(IFilmeRepositorio _filmeRepositorio, IMapper mapper)
         {
             this._FilmeRepositorio = _filmeRepositorio;
-            this._mapper = mapper;
+            this._Mapper = mapper;
         }
         
         public List<Filme> ListaFilmesAtivos()
@@ -32,17 +32,28 @@ namespace LocadadoraWebApi.Servicos.Servicos
 
         public void SalvarFilme(FilmeDto obj)
         {
-            var filme = _mapper.Map<Filme>(obj);
+            var filme = _Mapper.Map<Filme>(obj);
             filme.Ativo = true;
             filme.Disponivel = true;
             filme.Id = Guid.NewGuid();
 
             _FilmeRepositorio.Add(filme);
         }
+
+        public Filme ObterFilmePorId(Guid id)
+        {
+            return _FilmeRepositorio.GetById(id);
+        }
+
+        public void DeletarFilme(Guid id)
+        {
+            _FilmeRepositorio.Delete(id);
+        }
+
         public void AtualizarFilme(FilmeDto obj, Guid id)
         {
             throw new NotImplementedException();
         }
-
+       
     }
 }

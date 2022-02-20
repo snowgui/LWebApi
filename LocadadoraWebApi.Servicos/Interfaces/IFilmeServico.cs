@@ -9,8 +9,9 @@ namespace LocadoraWebApi.Servico.Interfaces
     {
         void SalvarFilme(FilmeDto obj);
         void AtualizarFilme(FilmeDto obj, Guid id);
+        Filme ObterFilmePorId(Guid id);
         List<Filme> ListaFilmesAtivos();
         List<Filme> ListaTodosFilmes();
-
+        void DeletarFilme(Guid id);
     }
 }

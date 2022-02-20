@@ -1,4 +1,5 @@
 ﻿using LocadoraWebApi.Entidades;
+using System;
 using System.Collections.Generic;
 
 namespace LocadoraWebApi.Repositorio
@@ -6,6 +7,9 @@ namespace LocadoraWebApi.Repositorio
     public static class MemoriaContexto
     {
         public static List<Filme> MemoriaFilmes = MemoriaContexto.SeedMemoriaFilmes();
+
+        public static List<Locador> MemoriaLocador = MemoriaContexto.SeedMemoriaLodador();
+
         private static List<Filme> SeedMemoriaFilmes()
         {
             var lst = new List<Filme>();
@@ -41,6 +45,36 @@ namespace LocadoraWebApi.Repositorio
             lst.Add(f4);
 
             return lst;
+        }
+
+        private static List<Locador> SeedMemoriaLodador()
+        {
+            var lst = new List<Locador>();
+
+            var l1 = new Locador(
+                nome: "Maria",
+                cpf: "98072941003",
+                ativo: true
+             );
+
+            var l2 = new Locador(
+                nome: "João",
+                cpf: "34969138001",
+                ativo: true
+            );
+
+            var l3 = new Locador(
+                nome: "Pedro",
+                cpf: "11191769054",
+                ativo: false
+            );
+
+            lst.Add(l1);
+            lst.Add(l2);
+            lst.Add(l3);
+
+            return lst;
+
         }
     }
 }
