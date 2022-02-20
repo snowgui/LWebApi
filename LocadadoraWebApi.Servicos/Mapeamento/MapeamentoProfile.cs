@@ -10,7 +10,7 @@ namespace LocadadoraWebApi.Servicos.Mapeamento
         {            
             CreateMap<Filme, FilmeDto>().ReverseMap();
 
-            CreateMap<Locador, LocadorDto>().ReverseMap();
+            CreateMap<Cliente, ClienteDto>().ReverseMap();
         }
     }
 }

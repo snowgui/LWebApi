@@ -1,6 +1,6 @@
 ﻿namespace LocadadoraWebApi.Servicos.Dto
 {
-    public  class LocadorDto
+    public  class ClienteDto
     {
         public string Nome { get; set; }
         public string Cpf { get; set; }

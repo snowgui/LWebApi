@@ -2,7 +2,7 @@
 
 namespace LocadoraWebApi.Entidades
 {
-    public class Locador
+    public class Cliente
     {
         #region Atributes
 
@@ -13,8 +13,8 @@ namespace LocadoraWebApi.Entidades
 
         #endregion
 
-        public Locador() { }
-        public Locador(string nome, string cpf, bool ativo)
+        public Cliente() { }
+        public Cliente(string nome, string cpf, bool ativo)
         {
             this.Id = Guid.NewGuid();
             this.Nome = nome;

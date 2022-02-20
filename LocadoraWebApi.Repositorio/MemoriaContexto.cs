@@ -8,7 +8,7 @@ namespace LocadoraWebApi.Repositorio
     {
         public static List<Filme> MemoriaFilmes = MemoriaContexto.SeedMemoriaFilmes();
 
-        public static List<Locador> MemoriaLocador = MemoriaContexto.SeedMemoriaLodador();
+        public static List<Cliente> MemoriaClientes = MemoriaContexto.SeedMemoriaClientes();
 
         private static List<Filme> SeedMemoriaFilmes()
         {
@@ -47,23 +47,23 @@ namespace LocadoraWebApi.Repositorio
             return lst;
         }
 
-        private static List<Locador> SeedMemoriaLodador()
+        private static List<Cliente> SeedMemoriaClientes()
         {
-            var lst = new List<Locador>();
+            var lst = new List<Cliente>();
 
-            var l1 = new Locador(
+            var l1 = new Cliente(
                 nome: "Maria",
                 cpf: "98072941003",
                 ativo: true
              );
 
-            var l2 = new Locador(
+            var l2 = new Cliente(
                 nome: "João",
                 cpf: "34969138001",
                 ativo: true
             );
 
-            var l3 = new Locador(
+            var l3 = new Cliente(
                 nome: "Pedro",
                 cpf: "11191769054",
                 ativo: false

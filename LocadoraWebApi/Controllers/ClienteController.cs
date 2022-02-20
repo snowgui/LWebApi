@@ -9,31 +9,31 @@ namespace LocadoraWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocadorController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        private readonly ILocadorServico _LocadorServico;
+        private readonly IClienteServico _LocadorCliente;
 
-        public LocadorController(ILocadorServico locadorServico)
+        public ClienteController(IClienteServico locadorServico)
         {
-            _LocadorServico = locadorServico;
+            _LocadorCliente = locadorServico;
         }
 
         [HttpGet]
-        public ActionResult<List<Locador>> ListaLocadorAtivos()
+        public ActionResult<List<Cliente>> ListaLocadorAtivos()
         {
-            return _LocadorServico.ListaLocadorAtivos();
+            return _LocadorCliente.ListaClienteAtivos();
         }
 
         [HttpGet("all")]
-        public ActionResult<List<Locador>> ListaTodosLocador()
+        public ActionResult<List<Cliente>> ListaTodosLocador()
         {
-            return _LocadorServico.ListaTodosLocador();
+            return _LocadorCliente.ListaTodosClientes();
         }
 
         [HttpPost(Name = "SalvarLocador")]
-        public ActionResult SalvarLocador(LocadorDto obj)
+        public ActionResult SalvarLocador(ClienteDto obj)
         {
-            _LocadorServico.SalvarLocador(obj);
+            _LocadorCliente.SalvarCliente(obj);
 
             return Created(new Uri(Url.Link("SalvarLocador", null)), obj);
         }
@@ -41,7 +41,7 @@ namespace LocadoraWebApi.Controllers
         [HttpDelete]
         public ActionResult DeletarLocador(Guid id)
         {
-            _LocadorServico.DeletarLocador(id);
+            _LocadorCliente.DeletarCliente(id);
             return NoContent();
         }
     }

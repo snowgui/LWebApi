@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace LocadoraWebApi.Repositorio.Interfaces
 {
-    public interface ILocadorRepositorio
+    public interface IClienteRepositorio
     {
-        List<Locador> GetAll();
-        Locador GetById(Guid id);
-        Locador Add(Locador obj);
-        Locador GetByCpf(String Nome);
+        List<Cliente> GetAll();
+        Cliente GetById(Guid id);
+        Cliente Add(Cliente obj);
+        Cliente GetByCpf(String Nome);
         void Delete(Guid id);        
     }
 }

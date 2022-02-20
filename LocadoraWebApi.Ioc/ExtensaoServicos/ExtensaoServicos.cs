@@ -9,7 +9,7 @@ namespace LocadoraWebApi.Ioc.ExtensaoServicos
         public static IServiceCollection RegistrarServicos(this IServiceCollection servicos)
         {
             servicos.AddScoped<IFilmeServico, FilmeServico>();
-            servicos.AddScoped<ILocadorServico, LocadorServico>();
+            servicos.AddScoped<IClienteServico, ClienteServico>();
 
             return servicos;
         }
