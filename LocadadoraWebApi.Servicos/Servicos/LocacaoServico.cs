@@ -31,6 +31,7 @@ namespace LocadadoraWebApi.Servicos
             if (filme == null || cliente == null) throw new ArgumentException("Cliente ou Filme não encontrado, informe (ClientId, FilmeId) Válidos!");
 
             if(!cliente.Ativo) throw new ArgumentException("Cliente inativo!");
+            if(!filme.Ativo) throw new ArgumentException("filme inativo!");
 
             if (filme.Disponivel)
             {
