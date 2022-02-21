@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraWebApi", "LocadoraWebApi\LocadoraWebApi.csproj", "{57A00A64-DD6B-410F-B142-438717F3BEF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraWebApi", "LocadoraWebApi\LocadoraWebApi.csproj", "{57A00A64-DD6B-410F-B142-438717F3BEF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraWebApi.Entidades", "LocadoraWebApi.Entidades\LocadoraWebApi.Entidades.csproj", "{D943520F-F286-443C-B3E1-95C6D767199E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraWebApi.Entidades", "LocadoraWebApi.Entidades\LocadoraWebApi.Entidades.csproj", "{D943520F-F286-443C-B3E1-95C6D767199E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadadoraWebApi.Servicos", "LocadadoraWebApi.Servicos\LocadadoraWebApi.Servicos.csproj", "{D621334B-1A79-4E8E-9EAD-57A0EF338E67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadadoraWebApi.Servicos", "LocadadoraWebApi.Servicos\LocadadoraWebApi.Servicos.csproj", "{D621334B-1A79-4E8E-9EAD-57A0EF338E67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraWebApi.Ioc", "LocadoraWebApi.Ioc\LocadoraWebApi.Ioc.csproj", "{E7A07F64-5CD1-4996-9E77-92645FE416DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraWebApi.Ioc", "LocadoraWebApi.Ioc\LocadoraWebApi.Ioc.csproj", "{E7A07F64-5CD1-4996-9E77-92645FE416DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraWebApi.Repositorio", "LocadoraWebApi.Repositorio\LocadoraWebApi.Repositorio.csproj", "{7AB584F3-9736-4D5A-A38E-74323E04792E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraWebApi.Repositorio", "LocadoraWebApi.Repositorio\LocadoraWebApi.Repositorio.csproj", "{7AB584F3-9736-4D5A-A38E-74323E04792E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraWebApi.Testes", "LocadoraWebApi.Testes\LocadoraWebApi.Testes.csproj", "{65590969-7A27-44AC-B292-0A1D20BED73B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7AB584F3-9736-4D5A-A38E-74323E04792E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB584F3-9736-4D5A-A38E-74323E04792E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB584F3-9736-4D5A-A38E-74323E04792E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65590969-7A27-44AC-B292-0A1D20BED73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65590969-7A27-44AC-B292-0A1D20BED73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65590969-7A27-44AC-B292-0A1D20BED73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65590969-7A27-44AC-B292-0A1D20BED73B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

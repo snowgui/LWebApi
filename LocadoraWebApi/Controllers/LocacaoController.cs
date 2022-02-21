@@ -81,7 +81,7 @@ namespace LocadoraWebApi.Controllers
         /// <param name="id">id do locador (cliente). </param>
         /// <returns></returns>
         [HttpGet("cliente/{id}")]
-        public ActionResult<List<Locacao>> ObterTodasLocacaoPorCliente(Guid id) => _LocacaoServico.ObterTodasLocacaoPorCliente(id);
+        public ActionResult<List<Locacao>> ObterTodasLocacaoPorCliente(Guid id) => Ok(_LocacaoServico.ObterTodasLocacaoPorCliente(id));
 
         /// <summary>
         /// Retorna todas as locações pendentes de determinado locador(cliente).
@@ -89,7 +89,7 @@ namespace LocadoraWebApi.Controllers
         /// <param name="id">id do locador (cliente). </param>
         /// <returns></returns>
         [HttpGet("pendente/cliente/{id}")]
-        public ActionResult<List<Locacao>> ObterTodasLocacaoPendentePorCliente(Guid id) => _LocacaoServico.ObterTodasLocacaoPendentePorCliente(id);
+        public ActionResult<List<Locacao>> ObterTodasLocacaoPendentePorCliente(Guid id) => Ok(_LocacaoServico.ObterTodasLocacaoPendentePorCliente(id));
 
     }
 }

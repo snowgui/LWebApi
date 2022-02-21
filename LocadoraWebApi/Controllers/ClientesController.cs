@@ -9,11 +9,11 @@ namespace LocadoraWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class ClientesController : ControllerBase
     {
         private readonly IClienteServico _LocadorClienteServico;
 
-        public ClienteController(IClienteServico _locadorServico)
+        public ClientesController(IClienteServico _locadorServico)
         {
             _LocadorClienteServico = _locadorServico;
         }
@@ -25,7 +25,7 @@ namespace LocadoraWebApi.Controllers
         [HttpGet]
         public ActionResult<List<Cliente>> ListaLocadorAtivos()
         {
-            return _LocadorClienteServico.ListaClienteAtivos();
+            return Ok(_LocadorClienteServico.ListaClienteAtivos());
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace LocadoraWebApi.Controllers
         [HttpGet("all")]
         public ActionResult<List<Cliente>> ListaTodosLocador()
         {
-            return _LocadorClienteServico.ListaTodosClientes();
+            return Ok(_LocadorClienteServico.ListaTodosClientes());
         }
 
         /// <summary>

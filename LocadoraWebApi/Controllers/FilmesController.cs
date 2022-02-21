@@ -57,9 +57,10 @@ namespace LocadoraWebApi.Controllers
         [HttpPost(Name = "SalvarFilme" )]
         public ActionResult SalvarFilme(FilmeDto obj)
         {
-            _FilmeServico.SalvarFilme(obj);
-
-            return Created(new Uri(Url.Link("SalvarFilme", null)), obj);            
+            _FilmeServico.SalvarFilme(obj);                                   
+                       
+            return Created("api/Filmes", obj);
+            //return Created(new Uri(Url.Link("SalvarFilme", null)), obj); 
         }
 
         /// <summary>
