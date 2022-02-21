@@ -48,7 +48,7 @@ namespace LocadadoraWebApi.Servicos.Servicos
         public void DeletarFilme(Guid id)
         {
             _FilmeRepositorio.Delete(id);
-        }
+        } 
 
         public void AtualizarFilme(FilmeDto obj, Guid id)
         {

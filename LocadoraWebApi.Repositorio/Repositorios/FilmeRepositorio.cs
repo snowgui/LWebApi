@@ -32,8 +32,7 @@ namespace LocadoraWebApi.Repositorio.Repositorios
         public Filme GetByName(string nome)
         {
             return MemoriaContexto.MemoriaFilmes.Where(x => x.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-        }
-
+        }       
         public Filme Update(Filme obj)
         {
             // Implementar atualizar filme

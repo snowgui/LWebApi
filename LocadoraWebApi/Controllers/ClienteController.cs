@@ -33,9 +33,22 @@ namespace LocadoraWebApi.Controllers
         [HttpPost(Name = "SalvarLocador")]
         public ActionResult SalvarLocador(ClienteDto obj)
         {
-            _LocadorCliente.SalvarCliente(obj);
+            try
+            {
+                _LocadorCliente.SalvarCliente(obj);
 
-            return Created(new Uri(Url.Link("SalvarLocador", null)), obj);
+                return Created(new Uri(Url.Link("SalvarLocador", null)), obj);
+
+            }
+            catch (ArgumentException ex)
+            {
+                return Ok(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+
         }
 
         [HttpDelete]

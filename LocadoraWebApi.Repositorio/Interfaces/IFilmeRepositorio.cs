@@ -11,6 +11,6 @@ namespace LocadoraWebApi.Repositorio.Interfaces
         Filme Add(Filme obj);
         Filme Update(Filme obj);
         void Delete(Guid id);
-        Filme GetByName(string nome);
+        Filme GetByName(string nome);        
     }
 }

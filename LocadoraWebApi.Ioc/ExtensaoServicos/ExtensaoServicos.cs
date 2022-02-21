@@ -1,4 +1,5 @@
-﻿using LocadadoraWebApi.Servicos.Servicos;
+﻿using LocadadoraWebApi.Servicos.Interfaces;
+using LocadadoraWebApi.Servicos.Servicos;
 using LocadoraWebApi.Servico.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ namespace LocadoraWebApi.Ioc.ExtensaoServicos
         {
             servicos.AddScoped<IFilmeServico, FilmeServico>();
             servicos.AddScoped<IClienteServico, ClienteServico>();
+            servicos.AddScoped<ILocacaoServico, LocacaoServico>();          
 
             return servicos;
         }

@@ -10,6 +10,8 @@ namespace LocadoraWebApi.Ioc.ExtensaoRepositorio
         {
             servicos.AddScoped<IFilmeRepositorio, FilmeRepositorio>();
             servicos.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            servicos.AddScoped<ILocacaoRepositorio, LocacaoRepositorio>();
+
             return servicos;
         }
     }
