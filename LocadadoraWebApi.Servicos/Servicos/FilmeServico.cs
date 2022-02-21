@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LocadadoraWebApi.Servicos.Servicos
+namespace LocadadoraWebApi.Servicos
 {
     public class FilmeServico : IFilmeServico
     {

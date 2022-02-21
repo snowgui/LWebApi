@@ -21,9 +21,12 @@ namespace LocadoraWebApi.Repositorio.Repositorios
         }
         public Locacao GetById(Guid id) => MemoriaContexto.MemoriaLocacao.FirstOrDefault(x => x.Id == id);
 
-        public List<Locacao> ObterTodasLocacao()
+        public List<Locacao> ObterTodasLocacao() => MemoriaContexto.MemoriaLocacao;
+        public List<Locacao> ObterTodasLocacaoPorCliente(Guid idCliente) => MemoriaContexto.MemoriaLocacao.Where(x => x.Locador.Id == idCliente).ToList();                           
+
+        public List<Locacao> ObterTodasLocacaoPendentePorCliente(Guid idCliente)
         {
-            return MemoriaContexto.MemoriaLocacao;
+            return MemoriaContexto.MemoriaLocacao.Where(x => x.Locador.Id == idCliente && x.DateDevolucao == null).ToList();
         }
     }
 }

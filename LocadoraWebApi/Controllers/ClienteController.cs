@@ -11,23 +11,23 @@ namespace LocadoraWebApi.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
-        private readonly IClienteServico _LocadorCliente;
+        private readonly IClienteServico _LocadorClienteServico;
 
-        public ClienteController(IClienteServico locadorServico)
+        public ClienteController(IClienteServico _locadorServico)
         {
-            _LocadorCliente = locadorServico;
+            _LocadorClienteServico = _locadorServico;
         }
 
         [HttpGet]
         public ActionResult<List<Cliente>> ListaLocadorAtivos()
         {
-            return _LocadorCliente.ListaClienteAtivos();
+            return _LocadorClienteServico.ListaClienteAtivos();
         }
 
         [HttpGet("all")]
         public ActionResult<List<Cliente>> ListaTodosLocador()
         {
-            return _LocadorCliente.ListaTodosClientes();
+            return _LocadorClienteServico.ListaTodosClientes();
         }
 
         [HttpPost(Name = "SalvarLocador")]
@@ -35,7 +35,7 @@ namespace LocadoraWebApi.Controllers
         {
             try
             {
-                _LocadorCliente.SalvarCliente(obj);
+                _LocadorClienteServico.SalvarCliente(obj);
 
                 return Created(new Uri(Url.Link("SalvarLocador", null)), obj);
 
@@ -54,8 +54,12 @@ namespace LocadoraWebApi.Controllers
         [HttpDelete]
         public ActionResult DeletarLocador(Guid id)
         {
-            _LocadorCliente.DeletarCliente(id);
+            _LocadorClienteServico.DeletarCliente(id);
             return NoContent();
         }
-    }
+
+        [HttpGet("cpf/{cpf}")]
+        public ActionResult<Cliente> ObterLocadorPorId(String cpf) => Ok(_LocadorClienteServico.GetByCpf(cpf));
+                            
+     }
 }

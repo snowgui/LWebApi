@@ -8,7 +8,10 @@ namespace LocadadoraWebApi.Servicos.Interfaces
     public interface ILocacaoServico
     {
         LocacaoDto AlugarFilme(LocacaoInserirDto locacaoInserir);
-        LocacaoDto DevolverFilme(Guid id);
+        LocacaoDevolverDto DevolverFilme(Guid id);
         List<Locacao> ObterTodasLocacao();
+        List<Locacao> ObterTodasLocacaoPorCliente(Guid id);
+        List<Locacao> ObterTodasLocacaoPendentePorCliente(Guid id);
+
     }
 }

@@ -11,5 +11,6 @@ namespace LocadoraWebApi.Servico.Interfaces
         List<Cliente> ListaClienteAtivos();
         List<Cliente> ListaTodosClientes();
         void DeletarCliente(Guid id);
+        Cliente GetByCpf(String cpf);
     }
 }

@@ -27,28 +27,46 @@ namespace LocadoraWebApi.Controllers
         [HttpPost(Name = "AlugarFilme")]
         public ActionResult<LocacaoDto> AlugarFilme(LocacaoInserirDto locacaoInserir)
         {
-            var obj = _LocacaoServico.AlugarFilme(locacaoInserir);
-            return Created(new Uri(Url.Link("AlugarFilme", null)), obj);
+            if (locacaoInserir == null) return BadRequest();
+            
+            try
+            {
+                var obj = _LocacaoServico.AlugarFilme(locacaoInserir);
+                return Created(new Uri(Url.Link("AlugarFilme", null)), obj);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
-        [HttpPost("id")]
-        public ActionResult<LocacaoDto> DevolverFilme(Guid id)
+        [HttpPost("Devolver/Filme/{id}")]
+        public ActionResult<LocacaoDevolverDto> DevolverFilme(Guid id)
         {
-
             try
             {
                 return Ok(_LocacaoServico.DevolverFilme(id));
             }
             catch (ArgumentException ex)
             {
-                return Ok(ex.Message);
+                return BadRequest(ex.Message);
             }
             catch (Exception)
             {
                 return StatusCode(500);
             }
-
         }
+
+        [HttpGet("cliente/{id}")]
+        public ActionResult<List<Locacao>> ObterTodasLocacaoPorCliente(Guid id) => _LocacaoServico.ObterTodasLocacaoPorCliente(id);                            
+
+
+        [HttpGet("pendente/cliente/{id}")]
+        public ActionResult<List<Locacao>> ObterTodasLocacaoPendentePorCliente(Guid id) => _LocacaoServico.ObterTodasLocacaoPendentePorCliente(id);
 
     }
 }

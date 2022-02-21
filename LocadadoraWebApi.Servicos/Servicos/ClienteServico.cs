@@ -2,13 +2,14 @@
 using LocadadoraWebApi.Servicos.Dto;
 using LocadoraWebApi.Entidades;
 using LocadoraWebApi.Repositorio.Interfaces;
+using LocadoraWebApi.Servico.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LocadadoraWebApi.Servicos.Servicos
+namespace LocadadoraWebApi.Servicos
 {
-    public class ClienteServico : LocadoraWebApi.Servico.Interfaces.IClienteServico
+    public class ClienteServico : IClienteServico
     {
 
         private readonly IClienteRepositorio _RepositorioCliente;
@@ -29,10 +30,10 @@ namespace LocadadoraWebApi.Servicos.Servicos
         {
             return _RepositorioCliente.GetAll();
         }
-
+        
         public void SalvarCliente(ClienteDto obj)
         {
-            var cliente = _RepositorioCliente.GetByCpf(obj.Nome);
+            var cliente = _RepositorioCliente.GetByCpf(obj.Cpf);
 
             if(cliente == null)
             {
@@ -44,7 +45,7 @@ namespace LocadadoraWebApi.Servicos.Servicos
             }
             else
             {
-                throw new ArgumentException("CPF em uso");
+                throw new ArgumentException($"Erro para cadastrar cliente, CPF: {obj.Cpf} já está sendo utilizado!");
             }
             
         }
@@ -53,5 +54,9 @@ namespace LocadadoraWebApi.Servicos.Servicos
             _RepositorioCliente.Delete(id);
         }
 
+        public Cliente GetByCpf(string cpf)
+        {
+            return _RepositorioCliente.GetByCpf(cpf);
+        }
     }
 }

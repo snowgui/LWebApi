@@ -1,5 +1,5 @@
-﻿using LocadadoraWebApi.Servicos.Interfaces;
-using LocadadoraWebApi.Servicos.Servicos;
+﻿using LocadadoraWebApi.Servicos;
+using LocadadoraWebApi.Servicos.Interfaces;
 using LocadoraWebApi.Servico.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 

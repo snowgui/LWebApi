@@ -5,7 +5,7 @@ using LocadoraWebApi.Repositorio.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace LocadadoraWebApi.Servicos.Servicos
+namespace LocadadoraWebApi.Servicos
 {
     public class LocacaoServico : ILocacaoServico
     {
@@ -27,6 +27,10 @@ namespace LocadadoraWebApi.Servicos.Servicos
             var filme = _FilmeRepositorio.GetById(locacaoInserir.FilmeId);
             var cliente = _ClienteRepositorio.GetById(locacaoInserir.ClientId);
             var locacao = new Locacao();
+
+            if (filme == null || cliente == null) throw new ArgumentException("Cliente ou Filme não encontrado, informe (ClientId, FilmeId) Válidos!");
+
+            if(!cliente.Ativo) throw new ArgumentException("Cliente inativo!");
 
             if (filme.Disponivel)
             {
@@ -52,26 +56,40 @@ namespace LocadadoraWebApi.Servicos.Servicos
             );
         }
 
-        public LocacaoDto DevolverFilme(Guid id)
+        public LocacaoDevolverDto DevolverFilme(Guid id)
         {
             var locacao = _LocacaoRepositorio.GetById(id);
 
+            if (locacao.DateDevolucao != null) throw new ArgumentException("Filme já foi devolvido!");
+
             _LocacaoRepositorio.DevolverFilme(locacao);
 
-            return new LocacaoDto(
-             nomeFilme: locacao.Filme.Nome,
-             nomeCliente: locacao.Locador.Nome,
-             dataLocacao: locacao.DataLocacao,
-             dataPrevistaDevolucao: locacao.DataPrevistaDevolucao,
-             dataDevolucao: locacao.DateDevolucao             
-             
-         );
+            var locacaoDevolver = new LocacaoDevolverDto();
+                locacaoDevolver.Locacao = new LocacaoDto(
+                nomeFilme: locacao.Filme.Nome,
+                nomeCliente: locacao.Locador.Nome,
+                dataLocacao: locacao.DataLocacao,
+                dataPrevistaDevolucao: locacao.DataPrevistaDevolucao,
+                dataDevolucao: locacao.DateDevolucao
+          );
 
+            if(locacao.DateDevolucao > locacao.DataPrevistaDevolucao)
+            {
+                locacaoDevolver.Msg = $"Devolução do filme: {locacao.Filme.Nome} está com atraso!";
+            }
+            else
+            {
+                locacaoDevolver.Msg = $"Devolução do filme: {locacao.Filme.Nome} concluída com sucesso!";
+            }
+
+            return locacaoDevolver;
         }
 
-        public List<Locacao> ObterTodasLocacao()
-        {
-            return _LocacaoRepositorio.ObterTodasLocacao();
-        }
+        public List<Locacao> ObterTodasLocacao() => _LocacaoRepositorio.ObterTodasLocacao();
+    
+        public List<Locacao> ObterTodasLocacaoPorCliente(Guid id) => _LocacaoRepositorio.ObterTodasLocacaoPorCliente(id);
+
+        public List<Locacao> ObterTodasLocacaoPendentePorCliente(Guid id) => _LocacaoRepositorio.ObterTodasLocacaoPendentePorCliente(id); 
+
     }
 }
