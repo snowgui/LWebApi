@@ -33,10 +33,11 @@ namespace LocadoraWebApi.Controllers
         /// </summary>
         /// <param name="locacaoInserir">Objeto Request para realizar uma locação de filme, informar no corpo da requisição = ClientId e FilmeId</param>
         /// <returns></returns>
-        [HttpPost(Name = "AlugarFilme")]
+        [HttpPost("AlugarFilme", Name = "AlugarFilme")]
         public ActionResult<LocacaoDto> AlugarFilme(LocacaoInserirDto locacaoInserir)
-        {
-            if (locacaoInserir == null) return BadRequest();
+        {            
+
+            if (!ModelState.IsValid) return UnprocessableEntity(ModelState);
 
             try
             {

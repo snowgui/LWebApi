@@ -56,11 +56,14 @@ namespace LocadoraWebApi.Controllers
         /// <returns></returns>
         [HttpPost(Name = "SalvarFilme" )]
         public ActionResult SalvarFilme(FilmeDto obj)
-        {
+        {            
+
+            if (!ModelState.IsValid) return UnprocessableEntity(ModelState);
+
             _FilmeServico.SalvarFilme(obj);                                   
                        
             return Created("api/Filmes", obj);
-            //return Created(new Uri(Url.Link("SalvarFilme", null)), obj); 
+            
         }
 
         /// <summary>

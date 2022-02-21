@@ -23,6 +23,7 @@ namespace LocadoraWebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        
         public ActionResult<List<Cliente>> ListaLocadorAtivos()
         {
             return Ok(_LocadorClienteServico.ListaClienteAtivos());
@@ -45,7 +46,10 @@ namespace LocadoraWebApi.Controllers
         /// <returns></returns>
         [HttpPost(Name = "SalvarLocador")]
         public ActionResult SalvarLocador(ClienteDto obj)
-        {
+        {            
+
+            if (!ModelState.IsValid) return UnprocessableEntity(ModelState);
+
             try
             {
                 _LocadorClienteServico.SalvarCliente(obj);
